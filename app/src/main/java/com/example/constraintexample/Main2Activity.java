@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Main2Activity extends AppCompatActivity {
     EditText emailEt;
@@ -25,6 +26,11 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         init();
+
+      if(auth.getCurrentUser() != null){
+          Intent intent = new Intent(Main2Activity.this, Home.class);
+          startActivity(intent);
+      }
     }
 
     private void init() {
